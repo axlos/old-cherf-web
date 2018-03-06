@@ -1,0 +1,139 @@
+<div class="row">
+  <div class="col-sm-12">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5>Manual Portfolio</h5>
+        <div class="ibox-tools">
+          <a class="collapse-link">
+            <i class="fa fa-chevron-up"></i>
+          </a>
+        </div>
+      </div>
+      <div class="ibox-content">
+        <form role="form">
+          <div class="row">
+            <div class="col-sm-6 b-r">
+              <div class="form-group">
+                <label for="asset">Asset</label>
+                <input type="text" placeholder="NVDA" id="asset" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="timeFrame">Time Frame (days)</label>
+                <input type="number" placeholder="1" id="timeFrame" class="form-control">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="amountToInvest">Amount to Invest</label>
+                <div class="input-group">
+                  <span class="input-group-addon">$</span>
+                  <input type="number" id="amountToInvest" class="form-control">
+                </div>
+              </div>
+              <button class="btn btn-w-m btn-primary pull-right" type="submit">Analyze</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-12">
+    <div class="tabs-container">
+      <ul class="nav nav-tabs">
+        <li class="active">
+          <a data-toggle="tab" href="#cycling" aria-expanded="true">Cycling</a>
+        </li>
+        <li class="">
+          <a data-toggle="tab" href="#convexity" aria-expanded="false">Convexity</a>
+        </li>
+        <li class="">
+          <a data-toggle="tab" href="#ideal-strategy" aria-expanded="false">Ideal Strategy</a>
+        </li>
+        <li class="">
+          <a data-toggle="tab" href="#smv" aria-expanded="false">Simple Moving Average</a>
+        </li>
+      </ul>
+      <div class="tab-content">
+        <div id="cycling" class="tab-pane active">
+          <div class="panel-body">
+            <div class="row m-t-md">
+              <div class="col-sm-3">
+                <p>Last transaction:</p>
+              </div>
+              <div class="col-sm-2">
+                <p>
+                  <strong>8 days ago</strong>
+                </p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-3">
+                <p>Next possible transaction:</p>
+              </div>
+              <div class="col-sm-2">
+                <p>
+                  <strong>4 days</strong>
+                </p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-3">
+                <p>Upcoming possible transaction:</p>
+              </div>
+              <div class="col-sm-2">
+                <span class="label label-primary">BUY</span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <table class="table table-bordered table-striped table-hover m-t-md">
+                  <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Day</th>
+                    <th>Value</th>
+                    <th>Cost</th>
+                    <th>Cash</th>
+                    <th>Assets</th>
+                    <th>Balance</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr *ngFor="let transaction of transactions">
+                    <td align="center">{{transaction.no}}</td>
+                    <td>{{transaction.date}}</td>
+                    <td align="right">{{transaction.value | currency:0:"USD"}}</td>
+                    <td align="right">
+                      <span class="m-r-xs">{{transaction.cost | currency:0:"USD"}}</span>
+                      <span class="label label-primary" *ngIf="transaction.type === 1">BUY</span>
+                      <span class="label label-danger" *ngIf="transaction.type === 2">SELL</span>
+                    </td>
+                    <td align="right">{{transaction.cash | currency:0:"USD"}}</td>
+                    <td align="center">{{transaction.asset}}</td>
+                    <td align="right">{{transaction.balance | currency:0:"USD"}}</td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="convexity" class="tab-pane">
+          <div class="panel-body">
+
+          </div>
+        </div>
+        <div id="ideal-strategy" class="tab-pane">
+          <div class="panel-body">
+
+          </div>
+        </div>
+        <div id="smv" class="tab-pane">
+          <div class="panel-body">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
