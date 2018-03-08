@@ -116,6 +116,37 @@
                 </table>
               </div>
             </div>
+            <div class="row">
+              <div class="col-sm-3">
+                <p>Total return:</p>
+              </div>
+              <div class="col-sm-2">
+                <p>
+                  <strong>$450</strong>
+                </p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-3">
+                <p>Percentage Return:</p>
+              </div>
+              <div class="col-sm-2">
+                <p>
+                  <strong>92.26%</strong>
+                </p>
+              </div>
+            </div>
+            <div>
+              <div class="col-sm-12 m-t-lg">
+                <canvas baseChart height="400"
+                        [datasets]="lineChartData"
+                        [labels]="lineChartLabels"
+                        [options]="lineChartOptions"
+                        [colors]="lineChartColors"
+                        [legend]="lineChartLegend"
+                        [chartType]="lineChartType"></canvas>
+              </div>
+            </div>
           </div>
         </div>
         <div id="convexity" class="tab-pane">

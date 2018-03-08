@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ChartsModule } from 'ng2-charts';
 
 // Container
 import { ManualPortfolioComponent } from './manual-portfolio.container';
@@ -16,7 +17,8 @@ import { routes } from './manual-portfolio.routes';
   imports: [
     CommonModule,
     FormsModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    ChartsModule,
   ],
   exports: [
     RouterModule,
