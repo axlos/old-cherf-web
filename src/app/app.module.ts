@@ -1,32 +1,34 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
-// Container
-import { PageNotFoundComponent } from './containers/page-not-found/page-not-found.container';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { ClarityModule } from '@clr/angular';
 import { AppComponent } from './app.component';
-// Modules
-import { ManualPortfolioModule } from './containers/manual-portfolio/manual-portfolio.module';
-// Configuration
-import { routes } from './app.routes';
-import { APP_BASE_HREF } from '@angular/common';
+import { ROUTING } from './app.routing';
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
+import { ManualComponent } from './manual/manual.component';
+import { AutomaticComponent } from './automatic/automatic.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    // Containers
-    PageNotFoundComponent
-  ],
-  imports: [
-    BrowserModule,
-    ManualPortfolioModule,
-    RouterModule.forRoot(routes),
-  ],
-  providers: [{
-    provide: APP_BASE_HREF, useValue: ''
-  }],
-  bootstrap: [
-    AppComponent
-  ]
+    declarations: [
+        AppComponent,
+        AboutComponent,
+        HomeComponent,
+        ManualComponent,
+        AutomaticComponent
+    ],
+    imports: [
+        BrowserAnimationsModule,
+        BrowserModule,
+        FormsModule,
+        HttpModule,
+        ClarityModule,
+        ROUTING
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule {
 }

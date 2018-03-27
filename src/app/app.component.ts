@@ -1,10 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+    selector: 'my-app',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  title = 'app';
+export class AppComponent implements OnInit {
+
+    currentRoute: string;
+
+    constructor(private router: Router) {
+    }
+
+    ngOnInit(): void {
+        this.router.events.subscribe(state => {
+            if (state instanceof NavigationEnd) {
+                this.currentRoute = state.url;
+            }
+        });
+    }
+
 }
