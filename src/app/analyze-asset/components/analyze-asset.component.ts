@@ -1,12 +1,12 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'manual-portfolio',
-  templateUrl: './manual-portfolio.component.html',
-  styleUrls: ['./manual-portfolio.component.scss'],
+  selector: 'analyze-asset',
+  templateUrl: './analyze-asset.component.html',
+  styleUrls: ['./analyze-asset.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ManualPortfolioComponent implements OnInit {
+export class AnalyzeAssetComponent implements OnInit {
 
   transactions: Array<any>;
 

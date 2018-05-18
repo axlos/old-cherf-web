@@ -3,10 +3,10 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ClarityModule } from '@clr/angular';
 
-import { ManualPortfolioComponent } from './manual-portfolio.component';
+import { AnalyzeAssetComponent } from './analyze-asset.component';
 
 export const COMPONENTS = [
-  ManualPortfolioComponent
+  AnalyzeAssetComponent
 ];
 
 @NgModule({

@@ -2,17 +2,22 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ClarityModule } from '@clr/angular';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
 
 import { ComponentsModule } from './components';
-import { ManualPortfolioPageComponent } from './containers/manual-portfolio-page';
+import { AnalyzeAssetPageComponent } from './containers/analyze-asset-page';
+import { AnalyzeAssetService } from './services/analyze-asset.service';
+import { AnalyzeAssetEffects } from './effects/analyze-asset.effects';
+import { reducers } from './reducers';
 
 @NgModule({
   imports: [
     CommonModule,
-    ComponentsModule,
     ClarityModule,
+    ComponentsModule,
     RouterModule.forChild([
-      { path: '', component: ManualPortfolioPageComponent }
+      { path: '', component: AnalyzeAssetPageComponent }
     ]),
     /**
      * StoreModule.forFeature is used for composing state
@@ -20,17 +25,20 @@ import { ManualPortfolioPageComponent } from './containers/manual-portfolio-page
      * eagerly or lazily and will be dynamically added to
      * the existing state.
      */
-    // StoreModule.forFeature('books', reducers),
+    StoreModule.forFeature('analyzeAsset', reducers),
     /**
      * Effects.forFeature is used to register effects
      * from feature modules. Effects can be loaded
      * eagerly or lazily and will be started immediately.
      */
-    // EffectsModule.forFeature([BookEffects, CollectionEffects]),
+    EffectsModule.forFeature([AnalyzeAssetEffects]),
   ],
   declarations: [
-    ManualPortfolioPageComponent
+    AnalyzeAssetPageComponent
+  ],
+  providers: [
+    AnalyzeAssetService
   ]
 })
-export class ManualPortfolioModule {
+export class AnalyzeAssetModule {
 }
